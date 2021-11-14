@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px 20px;
+            font-size: 24px;
+            width: 100%;
+        }
+        .box {
+            display: flex;
+            width: 50vw;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <ul class="box">
+                <li>아이디</li>
+                <li>이름</li>
+                <li>상태</li>
+            </ul>
+        </li>
+        <li th:each="mem : ${list}">
+            <ul class="box">
+                <li th:text="${mem.getMemId()}"></li>
+                <li th:text="${mem.getName()}"></li>
+                <li th:text="${mem.getStat()}"></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
