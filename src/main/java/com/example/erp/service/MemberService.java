@@ -1,23 +1,19 @@
 package com.example.erp.service;
 
 import com.example.erp.domain.entity.Member;
-import com.example.erp.domain.repository.MemberRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import com.example.erp.dto.MemberDTO;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 
-@Service
-@RequiredArgsConstructor
-public class MemberService {
+public interface MemberService extends UserDetailsService {
 
-    private final MemberRepository memberRepository;
-
-    public List<Member> findAll() {
-        return memberRepository.findAll();
-    }
-    public Member findById(Long memId) {
-        return memberRepository.findById(memId).get();
-    }
+    public UserDetails loadUserByUsername(String account) throws UsernameNotFoundException;
+    public Member save(MemberDTO member);
+    public Member login(MemberDTO member);
+    public List<Member> findAll();
+    public Member findById(long memId);
 }

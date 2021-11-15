@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Write</h1>
+<form action="/document/write" method="post">
+    <label>
+        ID
+        <select name="memberDTO.id">
+            <option th:each="member : ${memberList}" th:value="${member.getId()}" th:text="${member.getName()}"></option>
+        </select>
+    </label>
+    <label>Title <input type="text" name="title"></label>
+
+    <label>Content <textarea name="content" id="" cols="30" rows="10"></textarea></label>
+
+    <label>
+        firstSignMember
+        <select name="firstSignMember">
+            <option th:each="member : ${memberList}" th:value="${member.getId()}" th:text="${member.getName()}"></option>
+        </select>
+    </label>
+
+    <label>
+        middleSignMember
+        <select name="middleSignMember">
+            <option th:each="member : ${memberList}" th:value="${member.getId()}" th:text="${member.getName()}"></option>
+        </select>
+    </label>
+
+    <label>
+        lastSignMember
+        <select name="lastSignMember">
+            <option th:each="member : ${memberList}" th:value="${member.getId()}" th:text="${member.getName()}"></option>
+        </select>
+    </label>
+
+    <button type="submit">Write</button>
+</form>
+</body>
+</html>

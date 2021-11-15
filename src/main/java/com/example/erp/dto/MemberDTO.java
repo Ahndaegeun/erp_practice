@@ -1,35 +1,28 @@
-package com.example.erp.domain.entity;
+package com.example.erp.dto;
 
-import com.example.erp.dto.MemberDTO;
+import com.example.erp.domain.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Builder
-public class Member {
+public class MemberDTO {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
     private Long id;
-
     private String memId;
     private String memPw;
     private String name;
-
     private LocalDateTime startWork;
     private LocalDateTime lastWork;
 
-    public MemberDTO entityToDto() {
-        return MemberDTO.builder()
+    public Member dtoToEntity() {
+        return Member.builder()
                 .id(id)
                 .memId(memId)
                 .memPw(memPw)

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1><span sec:authentication="name"></span>님 환영합니다.</h1>
+
+    <a href="/document/write">문서 작성</a>2
+    <a href="/document/mydoc">내가 작성한 문서</a>
+    <a href="/document/signdoc">결재할 문서</a>
+    <a href="/member/proxy">대결 지정</a>
+
+    <a href="/member/vacation">휴가 작성</a>
+</body>
+</html>

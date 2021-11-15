@@ -3,33 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        body {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-            background: skyblue;
-            padding: 10px;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-
-        a:last-child {
-            margin: 0;
-        }
-    </style>
 </head>
 <body>
-<div>
-    <a href="/member/list">직원 목록</a>
-    <a href="/doc/write">서류 작성</a>
-    <a href="/doc/list">결재 목록</a>
-</div>
+  <h1>Login</h1>
+  <form action="/member/login" method="post">
+    <input type="text" name="memId" placeholder="ID">
+    <input type="password" name="memPw" placeholder="PW">
+    <button type="submit">Login</button>
+  </form>
+  <a href="/member/signUp">Sign Up</a>
 </body>
 </html>
